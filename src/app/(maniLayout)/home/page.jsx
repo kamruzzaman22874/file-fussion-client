@@ -1,4 +1,6 @@
 import React from 'react';
+import AddFile from './AddFile';
+import CloudStorage from './CloudStorage';
 
 const Home = () => {
     return (
@@ -58,6 +60,8 @@ const Home = () => {
                     </div>
                 </div>
             </header>
+            <AddFile/>
+            <CloudStorage/>
         </div>
     );
 };
