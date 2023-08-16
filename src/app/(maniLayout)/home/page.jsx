@@ -6,11 +6,10 @@ import Banner from "./Banner";
 const Home = () => {
   return (
     <div>
-        <Banner/>
+      <Banner />
       <AddFile />
       <CloudStorage />
     </div>
   );
 };
-
 export default Home;
