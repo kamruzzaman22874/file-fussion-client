@@ -2,6 +2,8 @@ import React from 'react';
 import AddFile from './AddFile';
 import CloudStorage from './CloudStorage';
 import Discuss from './Discuss';
+import ShearFile from './ShearFile';
+import Friction from './Friction';
 
 const Home = () => {
     return (
@@ -62,6 +64,8 @@ const Home = () => {
             <AddFile/>
             <CloudStorage/>
             <Discuss/>
+            <ShearFile/>
+            <Friction/>
         </div>
     );
 };
