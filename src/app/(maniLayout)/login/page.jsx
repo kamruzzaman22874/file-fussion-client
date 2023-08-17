@@ -30,7 +30,7 @@ const Login = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="text-xl">Email</span>
+                  <span>Email</span>
                 </label>
                 <div className="">
                   <input
@@ -44,7 +44,7 @@ const Login = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="text-xl">Password</span>
+                  <span>Password</span>
                 </label>
                   <input
                     className="w-full py-2  px-3  border rounded-full"
