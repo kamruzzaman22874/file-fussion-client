@@ -7,6 +7,7 @@ const Navbar = () => {
     <nav className="w-full h-20 bg-[#FFFFFF]">
       <div className="w-full container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 p-5">
         <div>
+          <Link href={'/'}>
           <h1 class="text-2xl font-extrabold text-center lg:text-2xl 2xl:text-2xl">
             <span class="text-transparent bg-gradient-to-br bg-clip-text from-teal-500 via-indigo-500 to-sky-500 dark:from-teal-200 dark:via-indigo-300 dark:to-sky-500">
               File
@@ -15,24 +16,35 @@ const Navbar = () => {
               Fusion
             </span>
           </h1>
+          </Link>
         </div>
         <div>
-          <ul className="flex justify-between gap-8 font-semibold">
+          <ul className="flex justify-between gap-8 ">
             <li>
-              <Link href={""}>Storage</Link>
+              <Link href={"/"}>Home</Link>
             </li>
             <li>
-              <Link href={""}>Plans</Link>
+              <Link href={""}>About</Link>
             </li>
             <li>
-              <Link href={""}>MyFiles</Link>
+              <Link href={""}>Pricing</Link>
+            </li>
+            <li>
+              <Link href={""}>Contact</Link>
             </li>
           </ul>
         </div>
-        <div>
-          <button className="py-2 px-3 bg-black text-white rounded-2xl font-semibold">
-            My Account
+        <div className="flex gap-3">
+          <Link href={'/login'}>
+          <button className="py-2 px-5 border border-black rounded-xl ">
+            Login
           </button>
+          </Link>
+         <Link href={'/signup'}>
+         <button className="py-2 px-5 border bg-cyan-500 rounded-xl ">
+            Sign Up
+          </button>
+         </Link>
         </div>
       </div>
     </nav>
