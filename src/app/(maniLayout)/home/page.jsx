@@ -4,6 +4,7 @@ import CloudStorage from './CloudStorage';
 import Discuss from './Discuss';
 import ShearFile from './ShearFile';
 import Friction from './Friction';
+import Testimonial from './Testimonial';
 
 const Home = () => {
     return (
@@ -66,6 +67,8 @@ const Home = () => {
             <Discuss/>
             <ShearFile/>
             <Friction/>
+            <Testimonial/>
+           
         </div>
     );
 };
