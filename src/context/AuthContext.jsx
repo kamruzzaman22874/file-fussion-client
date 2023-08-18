@@ -1,6 +1,6 @@
 'use client'
 import { createContext, useEffect, useState } from "react";
-import { FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "@/firebase/firebase.config";
 
 export const UserContext = createContext(null)
@@ -38,6 +38,8 @@ const AuthContext = ({children}) => {
         return signInWithPopup(auth , facebookProvider)
     }
 
+    // Logout impliment
+
     const logOut = () => {
         return signOut(auth);
     };
@@ -73,7 +75,7 @@ const AuthContext = ({children}) => {
         googleSignIn,
         facebookLogin,
         updateUserProfile,
-        logOut
+        logOut,
     }
     return (
         <UserContext.Provider value={authInformation}>
