@@ -2,13 +2,13 @@
 const Banner = () => {
   return (
     <div
-      className="w-full h-screen container px-6 py-16 mx-auto bg-no-repeat bg-right"
+      className="w-full  container px-6 py-20 mx-auto bg-no-repeat bg-right"
       style={{
         backgroundImage:
           "url(https://img.freepik.com/free-photo/online-calendar-digital-schedule-agenda_107791-17725.jpg?w=826&t=st=1691597962~exp=1691598562~hmac=b86add422368ed02b4d28b434396b55e0b87dc979610beb2e28c5039d683dd56)",
       }}
     >
-      <div className="grid lg:grid-cols-2 sm:grid-cols-1 h-96">
+      <div className="grid lg:grid-cols-2 sm:grid-cols-1 h-full">
         <div className="w-full mt-5 space-y-5 ">
           <p className="text-5xl font-semibold mt-14">
             Your Ultimate File <br /> Fusion Hub

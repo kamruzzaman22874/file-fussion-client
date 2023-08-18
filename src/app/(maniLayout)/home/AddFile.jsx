@@ -4,7 +4,6 @@ const AddFile = () => {
     return (
     <>
        <div className='bg-violet-200 p-10'>
-        {/* button */}
        <div className='flex justify-between w-[85%] mx-auto text-xl font-medium'>
         <button>
             Add File/

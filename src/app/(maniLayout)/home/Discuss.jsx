@@ -3,7 +3,7 @@ import React from 'react';
 const Discuss = () => {
     return (
     <>
-       <div className='w-[90%] mx-auto grid lg:grid-cols-3 sm:grid-cols-1 p-2 mt-10 mb-14'>
+       <div className='w-[90%] h-full py-20 mx-auto grid lg:grid-cols-3 sm:grid-cols-1 p-2 mt-10 mb-14'>
         {/*  */}
         <div className='mx-auto mt-6'>
             <h2 className='text-4xl font-semibold'>

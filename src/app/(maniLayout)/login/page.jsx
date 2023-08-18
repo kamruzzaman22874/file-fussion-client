@@ -12,8 +12,6 @@ import {
   FaRegEye,
   FaRegEyeSlash,
 } from "react-icons/fa";
-import { useRouter } from 'next/router';
-
 const Login = () => {
   const { userSignIn, googleSignIn, facebookLogin  } = useContext(UserContext)
   const [show, setShow] = useState(false);

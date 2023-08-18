@@ -3,14 +3,9 @@ import { UserContext } from "@/context/AuthContext";
 import Link from "next/link";
 import { useContext } from "react";
 import { AiFillFolderAdd, AiFillHome, AiFillSetting } from "react-icons/ai";
-import UserHome from "./UserHome";
-const Dashboard = () => {
-  const { user } = useContext(UserContext);
-  return (
-    <>
-      {
-        <div className="w-full md:flex justify-between">
-          <div className="w-full md:fixed md:w-[18%] bg-slate-50">
+const Sidebar = () => {
+    return (
+        <div className="w-full md:fixed md:w-[18%] bg-slate-50">
             <nav className="w-full  md:h-screen flex flex-col  items-center gap-5 px-5 py-5">
               <div className="text-center">
                 <Link href="/">
@@ -36,8 +31,8 @@ const Dashboard = () => {
                   </li>
                   <li>
                     <Link
-                      href="/myfile"
-                      className="flex gap-2 items-cente"
+                      href="/myFile"
+                      className="flex gap-2 items-center"
                     >
                       <AiFillFolderAdd className="w-5 h-5"></AiFillFolderAdd>My
                       Files
@@ -62,13 +57,7 @@ const Dashboard = () => {
               </Link>
             </nav>
           </div>
-          <div className="lg:ml-[18%] h-full w-full">
-            <UserHome></UserHome>
-          </div>
-        </div>
-      }
-    </>
-  );
+    );
 };
 
-export default Dashboard;
+export default Sidebar;
