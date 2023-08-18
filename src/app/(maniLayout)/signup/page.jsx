@@ -70,9 +70,9 @@ const SignUp = () => {
           <Lottie animationData={LoginLotti} loop={true} />
         </div>
         <div className="w-full md:max-w-[40%] card flex-shrink-0  max-w-sm  bg-base-100 py-10">
-          <form onSubmit={handleSignUp} className="w-4/5 mx-auto relative">
-            <h3 className="text-center text-2xl font-semibold text-transparent bg-gradient-to-tr bg-clip-text from-blue-500 via-pink-500 to-red-500 dark:from-sky-300 dark:via-pink-300 dark:to-red-500">
-              Sign Up To File Fusion
+          <form className="w-4/5 mx-auto relative">
+            <h3 className="text-center text-2xl font-semibold">
+              Sign Up To Fill Fussion
             </h3>
             <div className="flex gap-5 justify-center py-8">
               <div className="py-2 px-5 bg-rose-500 rounded-lg">
