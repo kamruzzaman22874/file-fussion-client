@@ -3,7 +3,7 @@ import React from 'react';
 const Friction = () => {
     return (
     <>
-       <div className='grid lg:grid-cols-2 sm:grid-cols-1 w-[90%] mx-auto py-16'>
+       <div className='grid lg:grid-cols-2 sm:grid-cols-1 w-[90%] mx-auto '>
        <div className='mx-auto mt-28'>
        <p className='text-4xl font-semibold '>Frictional Security</p>
        <p className='mt-3'>

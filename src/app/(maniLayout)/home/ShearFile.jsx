@@ -3,7 +3,8 @@ import React from "react";
 const ShearFile = () => {
   return (
     <>
-      <div className="w-[90%] h-full mx-auto  grid lg:grid-cols-2 sm:grid-cols-1 py-16 ">
+    <div className='grid lg:grid-cols-2 sm:grid-cols-1 w-[90%] mx-auto '>
+        
         <div>
           <img className="w-full h-full" src="https://i.postimg.cc/HnjGtK1h/images.png" alt="" />
         </div>
