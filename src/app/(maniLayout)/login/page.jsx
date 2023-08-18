@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import Lottie from "lottie-react";
 import LoginLotti from "../../../../public/Lottifiles/Signup.json";
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { BsFacebook, BsGoogle } from 'react-icons/bs';
 import { UserContext } from '@/context/AuthContext';
 // import { useLocation, useNavigate } from 'react-router-dom';
@@ -12,12 +12,16 @@ import {
   FaRegEye,
   FaRegEyeSlash,
 } from "react-icons/fa";
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
+import app from '@/firebase/firebase.config';
+const auth = getAuth(app)
 
 const Login = () => {
 
-  const { userSignIn, googleSignIn, facebookLogin  } = useContext(UserContext)
+  const { userSignIn, googleSignIn, facebookLogin} = useContext(UserContext)
   const [show, setShow] = useState(false);
   const [error, setError] = useState(false);
+  const emailRef = useRef()
 
   const handleUserSignIn = (event) => {
     event.preventDefault();
@@ -67,6 +71,32 @@ const Login = () => {
     setShow(!show);
   };
 
+
+  const handleResetPassword =() =>{
+    const email = emailRef.current.value;
+    if(!email){
+      Swal.fire({
+        position: 'top-middle',
+        icon: 'error',
+        title: 'please provide a valid email address',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      return;
+    }
+    sendPasswordResetEmail(auth, email)
+    .then(result =>{
+      Swal.fire({
+        position: 'top-middle',
+        icon: 'success',
+        title: 'please check email',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    })
+    .catch(err => setError(err));
+  }
+
   return (
     <div className="hero bg-base-200">
       <div className="hero-content flex-col lg:flex-row gap-5">
@@ -99,6 +129,7 @@ const Login = () => {
                   className="w-full py-2  px-3  border rounded-full"
                   type="email"
                   name="email"
+                  ref={emailRef}
                   placeholder="Enter Your Email"
                   required
                 />
@@ -125,6 +156,9 @@ const Login = () => {
                   )}
                 </div>
               </div>
+              <div className='py-2'>
+                  <p>Forgotten Password? <Link onClick={handleResetPassword} className='underline' href={""}>Reset password</Link> </p>
+              </div>
             </div>
             {error ? <p className="text-red-600">incorrent password</p> : ""}
             <button className="bg-cyan-500 w-full text-white text-sm uppercase rounded-full  px-6 py-4 my-4">
@@ -132,7 +166,7 @@ const Login = () => {
             </button>
             <div className="text-center  py-2">
               <h2>
-                Do not have an accoutn? Please{" "}
+                Do not have an accoutn? Please
                 <Link className="text-blue-600" href="/signup">
                   Create an account
                 </Link>
