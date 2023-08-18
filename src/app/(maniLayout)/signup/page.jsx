@@ -75,11 +75,11 @@ const SignUp = () => {
               Sign Up To Fill Fussion
             </h3>
             <div className="flex gap-5 justify-center py-8">
-              <div className="py-2 px-5 bg-rose-500 rounded-lg">
-                <button className="flex items-center gap-2 text-white"><BsGoogle className="mt-1" />Google</button>
+              <div className="py-2 px-5 bg-rose-500 rounded-lg cursor-pointer">
+                <div className="flex items-center gap-2 text-white"><BsGoogle className="mt-1" />Google</div>
               </div>
               <div className="py-2 px-5 bg-cyan-500 rounded-lg">
-                <button className="flex items-center gap-2 text-white"> <BsFacebook /> <h3>Facebook</h3> </button>
+                <div className="flex items-center gap-2 text-white cursor-pointer"> <BsFacebook /> <h3>Facebook</h3> </div>
               </div>
             </div>
             <div className="text-center flex justify-center items-center gap-3">

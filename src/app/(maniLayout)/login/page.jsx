@@ -12,13 +12,12 @@ import {
   FaRegEye,
   FaRegEyeSlash,
 } from "react-icons/fa";
+import { useRouter } from 'next/router';
 
 const Login = () => {
-
   const { userSignIn, googleSignIn, facebookLogin  } = useContext(UserContext)
   const [show, setShow] = useState(false);
   const [error, setError] = useState(false);
-
   const handleUserSignIn = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -29,7 +28,6 @@ const Login = () => {
       .then(result => {
         setError("")
         const loggedInUser = result.user;
-        console.log(loggedInUser);
         Swal.fire({
           position: 'top-end',
           icon: 'success',
@@ -79,10 +77,10 @@ const Login = () => {
 
             <div className="flex gap-5 justify-center py-8">
               <div className="py-2 px-5 bg-rose-500 rounded-lg">
-                <button onClick={handleGoogleSignIn} className="flex items-center gap-2 text-white"><BsGoogle className="mt-1" />Google</button>
+                <div onClick={handleGoogleSignIn} className="flex items-center gap-2 text-white cursor-pointer"><BsGoogle className="mt-1" />Google</div>
               </div>
               <div className="py-2 px-5 bg-cyan-500 rounded-lg">
-                <button onClick={handleFacebookLogin} className="flex items-center gap-2 text-white"> <BsFacebook /> <h3>Facebook</h3> </button>
+                <div onClick={handleFacebookLogin} className="flex items-center gap-2 text-white cursor-pointer"> <BsFacebook /> <h3>Facebook</h3> </div>
               </div>
             </div>
             <div className="text-center flex justify-center items-center gap-3">
@@ -92,7 +90,7 @@ const Login = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="text-xl">Email</span>
+                <span>Email</span>
               </label>
               <div className="">
                 <input
@@ -106,7 +104,7 @@ const Login = () => {
             </div>
             <div className="form-control my-2">
               <label className="label">
-                <span className="text-xl">Password</span>
+                <span>Password</span>
               </label>
               <div className='flex items-center relative'>
                 {/* <FaLock className="ml-2"></FaLock> */}
