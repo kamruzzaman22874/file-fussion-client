@@ -6,6 +6,8 @@ import Discuss from "./Discuss";
 import ShearFile from "./ShearFile";
 import Friction from "./Friction";
 import Testimonial from "./Testimonial";
+import OurUser from "./OurUser";
+import TrustedCompany from "./TrustedCompany";
 
 const Home = () => {
   return (
@@ -17,6 +19,8 @@ const Home = () => {
       <ShearFile/>
       <Friction/>
       <Testimonial/>
+      <OurUser/>
+      <TrustedCompany/>
     </div>
   );
 };
