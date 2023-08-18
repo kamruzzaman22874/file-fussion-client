@@ -14,7 +14,7 @@ const Login = () => {
           </div>
           <div className="w-full md:max-w-[40%] card flex-shrink-0  max-w-sm  bg-base-100 py-10">
             <form className="w-4/5 mx-auto relative">
-            <h3 className="text-center text-2xl font-semibold">Login To Fill Fussion</h3>
+            <h3 className="text-center text-2xl font-semibold">Login To File Fussion</h3>
             <div className='flex gap-5 justify-center py-8'>
                 <div className='py-2 px-5 bg-rose-500 rounded-lg'>
                    <h3>Google</h3> 
