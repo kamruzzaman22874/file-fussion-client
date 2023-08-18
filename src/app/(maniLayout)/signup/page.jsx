@@ -2,10 +2,67 @@
 import Link from "next/link";
 import Lottie from "lottie-react";
 import LoginLotti from "../../../../public/Lottifiles/Signup.json";
-import React from "react";
-import { BsGithub, BsGoogle } from "react-icons/bs";
+import React, { useContext } from "react";
+import { BsFacebook, BsGoogle } from "react-icons/bs";
+import { UserContext } from "@/context/AuthContext";
+import Swal from "sweetalert2";
+import { analyticsId } from "../../../../next.config";
 
 const SignUp = () => {
+
+  const { userSignUp, updateUserProfile } = useContext(UserContext)
+  
+
+  // Signup with email and password 
+
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const confirm = form.confirm.value;
+    const photo = form.photo.value;
+    console.log(name, email, password, photo);
+
+    if (password !== confirm) {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Wrong password',
+        showConfirmButton: false,
+        timer: 1500
+      })
+
+    }
+    else {
+
+      userSignUp(email, password)
+        .then(result => {
+          const loggedUser = result.user;
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Use create has been success',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          updateUserProfile(name, photo)
+            .then(result => { })
+            .catch(err => console.error(err));
+
+        })
+        .catch(err => console.log(err.message))
+      form.reset();
+    }
+  }
+
+
+
+
+
+
+
   return (
     <div className="hero bg-base-200">
       <div className="hero-content flex-col lg:flex-row gap-5">
@@ -13,16 +70,16 @@ const SignUp = () => {
           <Lottie animationData={LoginLotti} loop={true} />
         </div>
         <div className="w-full md:max-w-[40%] card flex-shrink-0  max-w-sm  bg-base-100 py-10">
-          <form className="w-4/5 mx-auto relative">
-            <h3 className="text-center text-2xl font-semibold">
-              Sign Up To Fill Fussion
+          <form onSubmit={handleSignUp} className="w-4/5 mx-auto relative">
+            <h3 className="text-center text-2xl font-semibold text-transparent bg-gradient-to-tr bg-clip-text from-blue-500 via-pink-500 to-red-500 dark:from-sky-300 dark:via-pink-300 dark:to-red-500">
+              Sign Up To File Fusion
             </h3>
             <div className="flex gap-5 justify-center py-8">
               <div className="py-2 px-5 bg-rose-500 rounded-lg">
-                <h3>Google</h3>
+                <button className="flex items-center gap-2 text-white"><BsGoogle className="mt-1" />Google</button>
               </div>
               <div className="py-2 px-5 bg-cyan-500 rounded-lg">
-                <h3>Facebook</h3>
+                <button className="flex items-center gap-2 text-white"> <BsFacebook /> <h3>Facebook</h3> </button>
               </div>
             </div>
             <div className="text-center flex justify-center items-center gap-3">
@@ -71,6 +128,18 @@ const SignUp = () => {
               />
             </div>
             <div className="form-control">
+              <label className="label">
+                <span>Confirm Password</span>
+              </label>
+              <input
+                className="w-full py-2  px-3  border rounded-full"
+                type="password"
+                name="confirm"
+                placeholder="Enter Your Confirm Password"
+                required
+              />
+            </div>
+            <div className="form-control">
               <div className="flex items-center justify-center w-full pt-5">
                 <label className="flex flex-col items-center justify-center w-full h-16 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                   <div className="flex flex-col items-center justify-center pt-5 pb-6">
@@ -93,7 +162,7 @@ const SignUp = () => {
                   <input
                     id="dropzone-file"
                     type="file"
-                    name="image"
+                    name="photo"
                     className="hidden"
                   />
                 </label>
